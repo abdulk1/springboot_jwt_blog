@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable() // disable csrf for our requests.
         .authorizeRequests()
-        .antMatchers("/").permitAll()
+        .antMatchers("/", "/*.bundle.js", "/*.bundle.css", "/favicon.ico").permitAll()
         .antMatchers(HttpMethod.POST,"/login").permitAll()
         .anyRequest().authenticated()
         .and()
@@ -34,10 +34,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         // Create a default account
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("password")
-                .roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
+        
+        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+
     }
 
 }

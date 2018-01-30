@@ -1,0 +1,24 @@
+<table id="searchDataTable" class="table table-striped" [mfData]="nfl | dataFilter : filterQuery" #mf="mfDataTable"
+    [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+    <thead>
+        <tr>
+            <th class="cellBorder" style="width: 25%;"><mfDefaultSorter by="team">
+                <span id="tableHeader">Team</span></mfDefaultSorter></th>
+            <th class="cellBorder" style="width: 25%"><mfDefaultSorter by="wins">
+                <span id="tableHeader">Wins</span></mfDefaultSorter></th>
+            <th class="cellBorder" style="width: 25%"><mfDefaultSorter by="losses">
+                <span id="tableHeader">Losses</span></mfDefaultSorter></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let nfl of mf.data">
+            <td class="cellBorder">{{nfl.team}}</td>
+            <td class="cellBorder">{{nfl.wins}}</td>
+            <td class="cellBorder">{{nfl.losses}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><mfBootstrapPaginator [rowsOnPageSet]="[15,25,50]"></mfBootstrapPaginator></td>
+    </tfoot>
+</table>

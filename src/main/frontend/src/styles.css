@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.glyphicon {
+    color: #333366;
+}
+
+ul.pagination>li>a {
+    color: #333366;
+}
+
+ul.pagination>.active>a {
+    background-color: #333366;
+    border-color: #333366;
+}
+
+ul.pagination>.active>a:focus, ul.pagination>.active>a:hover {
+    background: #ededed;
+    border-color: #333366;
+    color: #333366;
+}
+
+button {
+    background-color: #333366;
+    color: #ffffff;
+}
+
+button:hover, .button:active, .button:focus, .button:disabled, .link-active {
+    background: #ededed;
+    color: #333366;
+}

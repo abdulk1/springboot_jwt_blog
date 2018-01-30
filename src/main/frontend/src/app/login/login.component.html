@@ -1,0 +1,15 @@
+<div>
+    <div class="login-page">
+        <form class="login-form" role="form" (ngSubmit)="onLogin()">
+            <h5>Login using your username and password.</h5>
+            <input type="text" name="username" placeholder="Username" [(ngModel)]="username" id="username">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="password" autocomplete="off" id="password" />
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <div *ngIf="incorrectCredentials" class="red-text" style="font-weight: bold;">
+            Incorrect credentials. Please try again.
+            </div>
+            <div *ngIf="unauthorizedUser" class="red-text" style="font-weight: bold;">Unauthorized user.</div>
+            <button type="submit" class="button" id="btn-sign-in">Login</button>
+        </form>
+    </div>
+</div>
